@@ -1,6 +1,6 @@
 package unidad3.ejercicios.espanol.ejercicio2;
 
-import ejercicios.espanol.ejercicio2.CuentaBancaria.EnumTipoCuenta;
+import unidad3.ejercicios.espanol.ejercicio2.CuentaBancaria.EnumTipoCuenta;
 
 public class ClasePruebasEjercicio {
 

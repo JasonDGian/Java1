@@ -1,6 +1,7 @@
 package unidad3.ejercicios.espanol.ejercicio31;
+import unidad3.ejercicios.espanol.ejercicio31.Direccion.*;
 
-public class Persona{
+public class Persona implements Humano{
 	
 	// Atributos estaticos.
 	private static int numPersonas=0;
@@ -72,9 +73,27 @@ public class Persona{
 		return anoActual-anoNacimiento;
 	}
 	
+	public Direccion getDireccion() {
+		return this.direccion;
+	}
+	
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
+	
+	public void setDireccion(String calle, String ciudad, String codigoPostal, String pais) {
+		this.direccion = new Direccion(calle, ciudad, codigoPostal, pais);
+	}
+	
 	@Override
 	public String toString() {
 		return "Persona [nombre=" + this.nombre + ", apellido=" + this.apellidos + ", ID=" + this.nif + ", año de nacimiento " + this.anoNacimiento + "]";
+	}
+
+	@Override
+	public String identificate() {
+		// TODO Auto-generated method stub
+		return "Persona";
 	}
 	
 }

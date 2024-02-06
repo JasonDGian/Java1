@@ -1,23 +1,16 @@
 package unidad3.ejercicios.espanol.ejercicio3;
 
 public class Pelicula {
-
-	enum Genero {
-		ACCION,
-		COMEDIA,
-		DRAMA,
-		SUSPENSO;
-	}
 	
 	private String nombre;
 	private String director;
-	private Genero genero;
+	private GeneroPelicula genero;
 	private int duracion;
 	private int ano;
 	private double calificacion;
 	
 	// Constructor.
-	public Pelicula(String nombre, String director, Genero genero, int duracion, int ano, double calificacion) {
+	public Pelicula(String nombre, String director, GeneroPelicula genero, int duracion, int ano, double calificacion) {
 		this.nombre = nombre;
 		this.director = director;
 		this.genero = genero;
@@ -37,7 +30,7 @@ public class Pelicula {
 		return director;
 	}
 
-	public Genero getGenero() {
+	public GeneroPelicula getGenero() {
 		return genero;
 	}
 
@@ -63,7 +56,7 @@ public class Pelicula {
 		this.director = director;
 	}
 
-	private void setGenero(Genero genero) {
+	private void setGenero(GeneroPelicula genero) {
 		this.genero = genero;
 	}
 

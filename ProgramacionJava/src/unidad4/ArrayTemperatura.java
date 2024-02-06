@@ -42,8 +42,9 @@ public class ArrayTemperatura {
 				
 		for (int i=0; i<array.length; i++) {
 			
-			array[i] = (int) new Random();
-			
+			Random ran = new Random().nextInt();
+			array[i] = ;
+
 		}
 		
 		//devuelvo la referencia al array

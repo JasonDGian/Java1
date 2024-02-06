@@ -68,8 +68,17 @@ public class Persona{
 		return anoNacimiento;
 	}
 	
+	public Direccion getDireccion(){
+		return this.direccion;
+	} 
+	
+	public void setDireccion(Direccion direccion){
+		this.direccion=direccion;
+	} 
+	
 	public int calculaEdad(int anoActual) {
 		return anoActual-anoNacimiento;
+		
 	}
 	
 	@Override
