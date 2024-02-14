@@ -1,6 +1,6 @@
 package unidad3.ejercicios.ingles.comparableExercises.problem46;
 
-public class Invoice {
+public class Invoice implements Comparable<Invoice>{
 	
 	private int id;
 	private Customer customer;
@@ -54,8 +54,11 @@ public class Invoice {
 	public String toString() {
 		return "Invoice [id=" + id + ", customer=" + customer + ", amount=" + amount + "]";
 	}
-	
-	
 
+	@Override
+	public int compareTo(Invoice o) {
+		return this.getCustomer().compareTo(o.getCustomer());
+	}
+	
 } // Cierra invoice class
 
