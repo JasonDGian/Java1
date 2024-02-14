@@ -2,12 +2,10 @@ package unidad3.ejercicios.ingles.problem6;
 
 import java.util.Scanner;
 
-import ejercicios.ingles.problem6.Account.Account_Type;
-
 public class TestMain {
 	public static void main(String[] args) {
 // Test constructor and toString()
-		/*
+		
 		Account a1 = new Account("A101", "Tan Ah Teck", 88);
 		System.out.println(a1); // toString();
 		Account a2 = new Account("A102", "Kumar"); // default balance
@@ -27,7 +25,7 @@ public class TestMain {
 		a1.transferTo(a2, 100); // toString()
 		System.out.println(a1);
 		System.out.println(a2);
-		*/
+		
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -46,15 +44,10 @@ public class TestMain {
 		
 		System.out.println(ac200.getAccountType().getDescription());
 		System.out.println(ac200.getAccountType().isDefaulting());
-
 		
+		System.out.println(ac200.getAccountTypeDesc());
+
+		sc.close();
 	}
+	
 }
-/*
- * The expected output is: Account[id=A101,name=Tan Ah Teck,balance=88]
- * Account[id=A102,name=Kumar,balance=0] ID: A101 Name: Tan Ah Teck Balance: 88
- * Account[id=A101,name=Tan Ah Teck,balance=188] Account[id=A101,name=Tan Ah
- * Teck,balance=138] Amount exceeded balance Account[id=A101,name=Tan Ah
- * Teck,balance=138] Account[id=A101,name=Tan Ah Teck,balance=38]
- * Account[id=A102,name=Kumar,balance=100]
- */

@@ -57,7 +57,7 @@ public class Employee {
 	
 	// Functional methods.
 	public String getName() {
-		return this.firstName + " " + this.lastName;
+		return this.getFirstName() + " " + this.getLastName();
 	}
 	
 	public int getAnnualSalary() {

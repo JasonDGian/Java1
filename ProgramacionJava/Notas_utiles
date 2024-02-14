@@ -1,0 +1,33 @@
+Introducimos antes los pilares de la programación orientada a objeto que son
+cuatro:
+
+	1. Abstracción: abstraer en orientación a objetos es representar la
+	realidad a través de nuestras clases. Representamos de manera precisa
+	los detalles necesarios sobre un contexto real, omitiendo el resto.
+	
+	2. Herencia: permitimos crear clases heredando de otras. De esta manera
+	hay código ya escrito, lo heredamos, y lo utilizamos en las nuevas clases
+	sin volver a escribirlo.
+
+	3. Encapsulacion: cuando creamos clases en nuestros programas ofrecemos
+	para cada clase unos métodos que son servicios. El funcionamiento
+	interior de esa clase es irrelevante para las clases que usan ese
+	servicio. Por ejemplo, para arrancar mi coche no necesito saber como
+	esta compuesto el sistema eléctrico, sólo la llave para arrancarlo y
+	girarla. Ese es el servicio que me ofrecería una clase SistemaDeArranque.
+	
+	4. Polimorfismo: tiene que ver como su etimología indica con múltiples
+	formas, múltiples comportamientos. En herencia vamos a tener una
+	clase principal y múltiples subclases. La clase principal o el interfaz
+	ofrece un comportamiento común que las subclases hijas modifican
+	adaptándose a sus propias características.
+	
+	
+	
+	La encapsulacion hace transparente los datos sensibles al usuario.
+	
+	* Modificadores de acceso.
+		Sin nada.  -> Solo accesible desde el paquete de la clase.
+		Publico    -> Accesible todo y cualquier 
+		Privado
+		Protegido.

@@ -2,30 +2,7 @@ package unidad3.ejercicios.ingles.problem6;
 
 public class Account {
 
-	public enum Account_Type {
-		CHECK ("Checking account", false), 
-		SAVING ("Savings account", true), 
-		CD ("Certificate of deposits account", false);
-		
-		// Enum attributes
-		private String description;
-		private boolean isDefault;
-				
-		// Unsummonable constructor
-		private Account_Type(String description, boolean isDefault) {
-			this.description = description;
-			this.isDefault=isDefault;
-		}
 
-		// Getters
-		public final String getDescription(){
-			return this.description;
-			}
-		
-		public final boolean isDefaulting() {
-			return this.isDefault;
-		}
-	}
 	
 	// Private attributes
 	private String id;
@@ -67,7 +44,15 @@ public class Account {
 	public Account_Type getAccountType() {
 		return this.accountType;
 	}
-
+	
+	public void setAccountType(Account_Type accountType) {
+		this.accountType=accountType;
+	}
+	
+	public String getAccountTypeDesc() {
+		return this.getAccountType().getDescription();
+	}
+	
 	public int credit(int amount) {
 		this.balance = (this.balance + amount);
 		return this.balance;
