@@ -5,4 +5,5 @@
  * 
  */
 module ProgramacionJava {
+	requires junit;
 }
