@@ -1,15 +1,15 @@
-package unidad4.ejercicios.espanol.ejercicio49;
+package ejercicios.espanol.ejercicio49;
 
 import java.util.Objects;
 
 public class Municipio {
-	
-	//Atributos.
+
+	// Atributos.
 	private String nombre;
 	private int poblacion;
 	private double temperaturaMedia;
 	private double altitud;
-	
+
 	// CONSTRUCTOR
 
 	public Municipio(String nombre, int poblacion, double temperaturaMedia, double altitud) {
@@ -19,49 +19,39 @@ public class Municipio {
 		this.altitud = altitud;
 	}
 
-	
 	// GETTERS Y SETTERS
 
 	public String getNombre() {
 		return nombre;
 	}
 
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 
 	public int getPoblacion() {
 		return poblacion;
 	}
 
-
 	public void setPoblacion(int poblacion) {
 		this.poblacion = poblacion;
 	}
-
 
 	public double getTemperaturaMedia() {
 		return temperaturaMedia;
 	}
 
-
 	public void setTemperaturaMedia(double temperaturaMedia) {
 		this.temperaturaMedia = temperaturaMedia;
 	}
-
 
 	public double getAltitud() {
 		return altitud;
 	}
 
-
 	public void setAltitud(double altitud) {
 		this.altitud = altitud;
 	}
-	
-	
 
 	// TO STRING
 	@Override
@@ -69,13 +59,6 @@ public class Municipio {
 		return "Municipio [nombre=" + nombre + ", poblacion=" + poblacion + ", temperaturaMedia=" + temperaturaMedia
 				+ ", altitud=" + altitud + "]";
 	}
-
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(altitud, nombre, poblacion, temperaturaMedia);
-	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -90,11 +73,5 @@ public class Municipio {
 				&& Objects.equals(nombre, other.nombre) && poblacion == other.poblacion
 				&& Double.doubleToLongBits(temperaturaMedia) == Double.doubleToLongBits(other.temperaturaMedia);
 	}
-	
-	
-	
-	
-	
-	
 
 }

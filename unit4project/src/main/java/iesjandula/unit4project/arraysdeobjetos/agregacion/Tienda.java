@@ -9,7 +9,7 @@ public class Tienda {
 	public Tienda(String nombre, String direccion) {
 		this.nombre = nombre;
 		this.direccion = direccion;
-		clientes = new Cliente[CLIENTE_MAX];
+		this.clientes = new Cliente[CLIENTE_MAX];
 	}
 
 	// GETTERS Y SETTERS.	
