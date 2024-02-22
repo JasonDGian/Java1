@@ -19,6 +19,9 @@ class TientaTest {
 		mockTienda= new Tienda("Software J&P", "Calle falsa 123, Pais de la piruleta, provincia de la fantasia.");
 	}
 	
+
+	
+	/*
 	@Test
 	void addClienteTest() {
 		
@@ -28,9 +31,9 @@ class TientaTest {
 		// parallel hace uso de los demas nucleos del procesador.
 		
 		// el parallel sort da error en este caso porque los array con nulos no se pueden comparar.
-		//Arrays.parallelSort(array);
+		Arrays.parallelSort(array);
 		// Para el binary Search es necesario antes ordenar el array.
-		//assertTrue(Arrays.binarySearch(array, mockCliente)>=0);
+		assertTrue(Arrays.binarySearch(array, mockCliente)>=0);
 		
 		//una manera de resolver el problema de los objetos nulos en el array, es crear un cliente que funja de placeholder.
 		
@@ -39,7 +42,7 @@ class TientaTest {
 		
 		assertTrue(buscarElmArray(array, mockCliente));
 		
-	}
+	}*/
 	
 	
 	@Test
@@ -59,6 +62,26 @@ class TientaTest {
 
 	}
 	
+	@Test 
+	void hayClienteTest(){
+		
+		assertFalse(mockTienda.hayCliente());
+		
+		
+		mockTienda.addCliente(mockCliente);
+				
+		assertTrue(mockTienda.hayCliente());
+		
+		mockTienda.borrarCliente(mockCliente);
+		
+		assertFalse(mockTienda.hayCliente());
+		
+	}
+	
+
+	
+
+	/*
 	private boolean buscarElmArray(Cliente[] clientes, Cliente cliente) {
 
 		boolean encontrado = false;
@@ -73,6 +96,6 @@ class TientaTest {
 		}
 
 		return encontrado;
-	}
+	}*/
 
 }

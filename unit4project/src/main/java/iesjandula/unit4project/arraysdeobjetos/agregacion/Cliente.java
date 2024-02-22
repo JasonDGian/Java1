@@ -41,14 +41,21 @@ public class Cliente implements Comparable<Cliente>{
 		this.dni = dni;
 	}
 
+
 	public boolean equals(Cliente cl) {
 		if (this == cl)
 			return true;
 		if (cl == null)
 			return false;
-		return Objects.equals(apellidos, cl.apellidos) && Objects.equals(dni, cl.dni)
-				&& Objects.equals(nombre, cl.nombre);
+		return Objects.equals(dni, cl.dni);
 	}
+		
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(dni);
+	}
+
 
 	@Override
 	public int compareTo(Cliente o) {
