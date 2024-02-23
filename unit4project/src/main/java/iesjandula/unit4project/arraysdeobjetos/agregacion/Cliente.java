@@ -62,4 +62,12 @@ public class Cliente implements Comparable<Cliente>{
 					
 		return this.getDni().compareTo(o.getDni());
 	}
+
+	@Override
+	public String toString() {
+		return "Cliente [nombre=" + nombre + ", apellidos=" + apellidos + ", dni=" + dni + "]";
+	}
+	
+	
+	
 }

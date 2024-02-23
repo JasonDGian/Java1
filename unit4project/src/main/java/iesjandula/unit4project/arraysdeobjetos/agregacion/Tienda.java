@@ -25,20 +25,16 @@ public class Tienda {
 	public Tienda(String nombre, String direccion, Cliente[] arrayClientes) {
 		
 		this(nombre, direccion);
+		this.parsearClientes(arrayClientes);
 		
 	}
 	
 	
 	// Metodo privado para parsear clientes del constructor.
-	private Cliente[] parsearClientes( Cliente[] arrayClientes) {
-		
-		for (Cliente cliente : arrayClientes) {
-			
-			
-			
+	private void parsearClientes( Cliente[] arrayClientes) {
+		for (Cliente clienteX : arrayClientes) {
+			this.addCliente(clienteX);			
 		}
-		
-		
 	}
 
 	// GETTERS Y SETTERS.
