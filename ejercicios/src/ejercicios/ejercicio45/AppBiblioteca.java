@@ -54,14 +54,6 @@ public class AppBiblioteca {
 		 * 
 		 */
 		
-		
-		
-		
-		
-		
-		
-		
-		
 		Libro quijote = new Libro ("Quijote","Cervantes", 1605, "Anaya", "ISBN123513");
 		Libro inferno = new Libro ("L'inferno","Dante", 1304, "WorldCAt", "ISBNN80008492");
 		Libro emergido = new Libro ("Le Cronache del mondo emerso","Licia Troisi", 2009, "Oscar Best Sellers", "ISBN2021201");
@@ -72,9 +64,9 @@ public class AppBiblioteca {
 		
 
 
-		biblioNacional.mostrarLibros();
+		biblioNacional.mostrarLibrosPantalla();
 		biblioNacional.addLibro(emergido);
-		biblioNacional.mostrarLibros();
+		biblioNacional.mostrarLibrosPantalla();
 		
 		LibroComparator libroComparator = new LibroComparator();
 		System.out.println(	libroComparator.compare(emergido, emergido));

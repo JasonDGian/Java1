@@ -1,5 +1,8 @@
 package ejercicios.ejercicio45;
 
+// Cuando se trata de una operacion simple, a menudo con un solo array, podemos usar un FOR EACH.
+// Cuando en cambio necesitamos tener en cuenta un indice, entonces usamos un for(i)
+
 public class Biblioteca {
 
 	private String nombre;
@@ -88,7 +91,7 @@ public class Biblioteca {
 	 * Listar libros que muestra en pantalla los datos de todos los libros de la
 	 * biblioteca invocando el método imprimir de los libros
 	 */
-	public void mostrarLibros() {
+	public void mostrarLibrosPantalla() {
 		// Tenemos en cuenta el contador de libros para limitar las iteraciones.
 		// Recorremos el array hasta dar con la cifra contada.
 		// imprime solo si el libro no es placeholder.
@@ -106,13 +109,14 @@ public class Biblioteca {
 		}
 	}
 	
-	// Otra manear de hacerlo, que no me gusta.
-	public void mostrarLibrosPorContador() {
-		// Basandonos en el recuento de libros en la colección imprimimos cada uno de ellos.
-		for (int i = 0; i<contadorLibros; i++) {		
-			this.libros[i].imprimir();
-		}
-	}
+	/*
+	 HACER UN METODO QUE CREA UN NUEVO ARRAY A PARTIR DEL ARRAY CON NULOS
+	public Libros[] mostrarLibros() {
+		Libros[] nuevoArrayLibros = new Libros[contadorLibros];
+		int indice=0;		
+		return nuevoArrayLibros;		
+	}*/
+	
 	
 	// Hacer un metodo que rellene la coleccion de libros
 	private void rellenaConLibroNulo() {
@@ -126,9 +130,20 @@ public class Biblioteca {
 		}
 	}
 	
+	public boolean hayLibros() {
+		
+		boolean hayLibros = false;
+		
+		if (contadorLibros>0) {
+			hayLibros=true;
+		}
+		return hayLibros;
+		}
+		
+		
+} // Cierra la clase Biblioteca.
 	
-	
-}
+
 	
 	
 	
