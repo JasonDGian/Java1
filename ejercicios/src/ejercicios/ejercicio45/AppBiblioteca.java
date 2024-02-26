@@ -1,4 +1,4 @@
-package unidad4.ejercicios.espanol.ejercicio45;
+package ejercicios.ejercicio45;
 
 public class AppBiblioteca {
 
@@ -49,7 +49,8 @@ public class AppBiblioteca {
 		 * ya que el compareTo de strings no se comporta exactamente asi.
 		 * 
 		 * COMPARATOR: es un derivado del COMPARABLE que permite comparar dos 
-		 * objetos sin necesidad de invocarlo desde un objeto.
+		 * objetos sin necesidad de invocarlo desde un objeto. Para ello creamos una clase externa llamada ObjetoComparator
+		 * que implemente la interfaz COMPARATOR con el tipo de objeto referente. Ejemplo Comparator<Libro>
 		 * 
 		 */
 		
@@ -67,14 +68,21 @@ public class AppBiblioteca {
 		
 		Libro[] libros = {quijote, inferno, emergido};
 		
-		//Biblioteca biblioNacional = new Biblioteca ( "Biblioteca Nacional" , libros  );
+		Biblioteca biblioNacional = new Biblioteca ( "Biblioteca Nacional" , libros  );
 		
-		System.out.println( quijote.compareTo(emergido) );
-		System.out.println( quijote.compareTo(quijote) );
-		System.out.println( emergido.compareTo(quijote) );
 
+
+		biblioNacional.mostrarLibros();
+		biblioNacional.addLibro(emergido);
+		biblioNacional.mostrarLibros();
 		
-		
+		LibroComparator libroComparator = new LibroComparator();
+		System.out.println(	libroComparator.compare(emergido, emergido));
+		System.out.println(	libroComparator.compare(emergido, quijote));
+		System.out.println(	libroComparator.compare(quijote, emergido));
+		System.out.println( emergido.compareTo(emergido) );
+		System.out.println( emergido.compareTo(quijote) );
+		System.out.println( quijote.compareTo(emergido) );
 	}
 
 }

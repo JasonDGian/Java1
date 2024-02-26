@@ -1,4 +1,4 @@
-package unidad4.ejercicios.espanol.ejercicio45;
+package ejercicios.ejercicio45;
 
 import java.util.Objects;
 
@@ -69,54 +69,53 @@ public class Libro implements Comparable<Libro> {
 
 	// El libro debe tener un método imprimir que muestre los valores de sus atributos.
 	public void imprimir() {
-		System.out.println( "Libro [titulo=" + titulo + ", autor=" + autor + ", anoPublicacion=" + anoPublicacion + ", editorial="
-				+ editorial + ", referenciaBibliografica=" + referenciaBibliografica + "]");
+		System.out.println("Libro [titulo=" + titulo + ", autor=" + autor + ", anoPublicacion=" + anoPublicacion
+				+ ", editorial=" + editorial + ", referenciaBibliografica=" + referenciaBibliografica + "]");
 	}
+
+	
+	// Metodo equals personalizado.
+	// El libro debe tener un metodo equals.
+	public boolean equals(Libro otroLibro) {
+		// Controla si la instancia es exactamente la misma (existencia en memoria en la misma direccion)
+		if (this == otroLibro) 
+			return true;
+		// Controla si el objeto parametro es nulo. De ser nulo significa que no está instanciado y no es comparable.
+		if (otroLibro == null) 
+			return false;
+		// Controla la equivalencia de clases del objeto corriente (this) con el objeto parametro.
+		if (this.getClass() != otroLibro.getClass()) 
+			return false;
+
+		// anoPublicación lo controla con doble igual porque es INT.
+		return this.anoPublicacion == otroLibro.anoPublicacion 
+				// Los demás los controla con Object.equals porque son tipo string.
+				&& Objects.equals(autor, otroLibro.autor) && Objects.equals(editorial, otroLibro.editorial) 
+				&& Objects.equals(referenciaBibliografica, otroLibro.referenciaBibliografica)
+				&& Objects.equals(titulo, otroLibro.titulo);
+	}
+	
 
 	// METODOS SOBRECARGADOS.
-	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(anoPublicacion, autor, editorial, referenciaBibliografica, titulo);
+		return Objects.hash(referenciaBibliografica);
 	}
 
-	// El libro debe tener un metodo equals.
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) // check de si es una clase objeto: devuelve true y sigue al siguiente check.
-			return true;
-		if (obj == null) // check si es nulo: devuevle falso
-			return false;
-		if (getClass() != obj.getClass()) // si el objeto alimentado es de distinta clase entonces devuelve false.
-			return false;
-		Libro other = (Libro) obj;
-		return anoPublicacion == other.anoPublicacion // constroles de atributos en serie.
-				&& Objects.equals(autor, other.autor) && Objects.equals(editorial, other.editorial)
-				&& Objects.equals(referenciaBibliografica, other.referenciaBibliografica)
-				&& Objects.equals(titulo, other.titulo);
-	}
-	
 	// El libro debe implementar el comparable.
 	@Override
 	public int compareTo(Libro o) {
-		// El metodo compara la referencia bibliografica, de tipo string y según el resultado devuelve 
-		// un valor de tipo 1 0 -1.
-		
-		if (this.referenciaBibliografica.compareTo(o.referenciaBibliografica) > 0) { return 1; }
-		else if (this.referenciaBibliografica.compareTo(o.referenciaBibliografica) < 0 ) {return -1;}
-		else {return 0;}
+		// comparación lexicográfica.
+		return this.referenciaBibliografica.compareTo(o.referenciaBibliografica);
 	}
 
+	// Metodo toString de la clase.
 	@Override
 	public String toString() {
 		return "Libro [titulo=" + titulo + ", autor=" + autor + ", anoPublicacion=" + anoPublicacion + ", editorial="
 				+ editorial + ", referenciaBibliografica=" + referenciaBibliografica + "]";
 	}
-	
-	
-	
-	
-	
 	
 }
 
