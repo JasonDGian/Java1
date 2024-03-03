@@ -1,0 +1,25 @@
+Ejercicio 31. 
+Se trata de crear una pequeña base de datos de personas de una universidad.
+De momento definiremos y probaremos las siguientes clases:
+
+• Direccion: 
+	o atributos: calle, ciudad, código postal, pais 
+	o Constructores predeterminado y parametrizado.
+	
+• Persona: 
+Clase ya creada (con nombre, apellidos y NIF) a la que añadiremos el atributo 
+dirección y sus métodos getters y setters. Esta clase implementa la interface 
+Humano, con un método indentificate(), que muestra el tipo de la clase que lo 
+implementa (el tipo de persona, en este caso).
+
+• Estudiante: Subclase de Persona. 
+	o Atributos: ID de estudiante 
+	o Constructores: predeterminado y constructor parametrizado que admita el ID. 
+	o Métodos: getters y setters y toString().
+
+• Profesor: Subclase de Persona. 
+	o Atributos : despacho 
+	o Constructores: predeterminado y constructor parametrizado que admita el despacho. 
+	o Métodos: getters y setters.
+	
+Crea una variable de tipo persona para cada clase.
