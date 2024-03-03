@@ -231,4 +231,4 @@ public class Problem49 {
 	
 	
 	} // cierra el main
-}
+}// ciera clase
