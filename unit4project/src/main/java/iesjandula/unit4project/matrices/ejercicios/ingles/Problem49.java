@@ -188,6 +188,9 @@ public class Problem49 {
 	int[][] sumaAB = new int[2][2];
 	
 	// HACER LA SUMA RECORRIDA POR FILAS
+	System.out.println("");
+	System.out.println("Suma");
+
 	for (int i = 0 ; i<a.length ; i++) {
 		
 		for (int j = 0; j<a[0].length ; j++) {
@@ -207,7 +210,8 @@ public class Problem49 {
 	}
 
 	// HACER LA MULTIPLICACION RECORRIDA POR FILAS
-	
+	System.out.println("");
+	System.out.println("Multiplicación");
 	int[][] productoAB = new int[2][2];
 	for (int i = 0 ; i<a.length ; i++) {
 		
@@ -228,6 +232,21 @@ public class Problem49 {
 	}
 	
 	
+	
+	// posible solución para matrices irregulares.
+	
+	int[][] arrayEjemplo = {{1},{2,3},{4,5,6}};
+
+	
+	// En este array almacenamos las longitudes de los distintos arrays.
+	// Lo inciializamos segun la longiut del array a analizar.
+	int[] longitudesArray = new int[arrayEjemplo.length];
+	
+	/*for ( int i = 0; int < arrayEjemplo.length ; i++ ) {
+		
+		
+		
+	}*/
 	
 	
 	} // cierra el main

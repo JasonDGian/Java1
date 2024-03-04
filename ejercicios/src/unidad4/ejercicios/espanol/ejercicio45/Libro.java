@@ -68,7 +68,7 @@ public class Libro implements Comparable<Libro> {
 	// METODOS FUNCIONALES.
 
 	// El libro debe tener un método imprimir que muestre los valores de sus atributos.
-	public void imprimir() {
+	public void imprimirLibro() {
 		System.out.println( "Libro [titulo=" + titulo + ", autor=" + autor + ", anoPublicacion=" + anoPublicacion + ", editorial="
 				+ editorial + ", referenciaBibliografica=" + referenciaBibliografica + "]");
 	}
@@ -112,10 +112,6 @@ public class Libro implements Comparable<Libro> {
 		return "Libro [titulo=" + titulo + ", autor=" + autor + ", anoPublicacion=" + anoPublicacion + ", editorial="
 				+ editorial + ", referenciaBibliografica=" + referenciaBibliografica + "]";
 	}
-	
-	
-	
-	
 	
 	
 }
