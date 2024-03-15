@@ -3,7 +3,21 @@ package iesjandula.projectunit5.excepciones.ejemploExcepciones;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
+
 public class App {
+	
+	// Esto carga el fichero de configuración. Tiene que ver con la carga de información del sistema.
+	static {
+		String fileConfig = System.getProperty("user.dir") + "\\src\\main\\resources\\log4j2.properties";
+		System.setProperty("log4j2.configurationFile", fileConfig);
+	}
+	
+	// sentencia de creación de logger.
+	public static final Logger appLogger = LogManager.getLogger();
 
 	public static void main(String[] args) {
 
@@ -12,6 +26,10 @@ public class App {
 		double sueldo = 0.0;
 		double IRPF = 0.0;
 		double sueldoNeto = 0.0;
+
+		// crea un marcador para el logger
+		Marker marker = MarkerManager.getMarker("App");
+
 
 		EntradaDeDatos entradaDatos = new EntradaDeDatos();
 		Empleado emp = null;
@@ -46,6 +64,7 @@ public class App {
 
 				case 1:
 					System.out.println("Fin del programa");
+					
 					break;
 
 				default:
@@ -68,20 +87,23 @@ public class App {
 			
 			catch (ErrorIRPFException e) {
 				// TODO Auto-generated catch block
-
-				System.out.println(e.getMessage());
+				//System.out.println(e.getMessage());
+				appLogger.error(marker, e.getMessage());
 
 			} catch (ErrorEntradaException eee) {
-
-				System.out.println(eee.getMessage());
-
+	
+				// System.out.println(eee.getMessage());
+				appLogger.error(marker, eee.getMessage());
+				
 			}
 
 			finally {
 
 				// Borramos el empleado incorrecto
-				System.out.println("Procedemos a borrar el empleado");
-
+				//System.out.println("Procedemos a borrar el empleado");
+				
+				appLogger.info(marker, "Procedemos a borrar el empleado");
+				
 				emp = null;
 
 			}

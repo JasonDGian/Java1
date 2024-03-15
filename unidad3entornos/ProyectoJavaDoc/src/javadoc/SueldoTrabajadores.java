@@ -28,6 +28,9 @@ public interface SueldoTrabajadores {
 	 *@see Profesor#calculaSueldo()  
 	 *@see Conserje#funcionTrabajador()
 	 *@see Formatos#inicialConMayusculas(String)
+	 *
+	 * <a href="https://www.juntaandalucia.es">Enlace al calculo de sueldos </a>
+	 *
 	 */
 	double calculaSueldo();
 	

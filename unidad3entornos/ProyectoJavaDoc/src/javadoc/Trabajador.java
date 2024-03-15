@@ -59,9 +59,8 @@ public abstract class  Trabajador implements SueldoTrabajadores {
 	
 	/**
 	 * Este método calcula el sueldo para el trabajador específico. No recibe parámetros
-	 * Este método será implementado por todas las subclases	 * 
+	 * Este método será implementado por todas las subclases	 
 	 * como profesor que podeis ver en el enlace {@link Profesor#funcionTrabajador}
-	 
 	 * 
 	 * 
 	 *@return double
@@ -70,6 +69,7 @@ public abstract class  Trabajador implements SueldoTrabajadores {
 	 */
 	
 	public abstract String funcionTrabajador();
+	
 	
 	public Trabajador() {
 		
@@ -101,44 +101,75 @@ public abstract class  Trabajador implements SueldoTrabajadores {
 	}
 
 	
-	
+	/**
+	 * Devuelve el id del trabajador.
+	 * @return int id del trabajador.
+	 */
 	public int getId() {
 		return id;
 	}
-
+	
+	/**
+	 * Configura el id del trabajador.
+	 * @param id Configura el ID del trabajador, recibe el id como parametro.
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * Devuelve el nombre del trabajador.
+	 * @return String devuelve el nombre del trabajador.
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+	 * Configura el nombre del trabajador.
+	 * @param nombre configura el nombre del trabajador.
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+	/**
+	 * Devuelve el sueldo del trabajador.
+	 * @return double sueldo Devuelve el sueldo del trabajador.
+	 */
 	public double getSueldo() {
 		return sueldo;
 	}
 
+	/**
+	 * Configura el sueldo del trabajador.
+	 * @param sueldo
+	 */
 	public void setSueldo(double sueldo) {
 		this.sueldo = sueldo;
 	}
 
 	
-
+	/**
+	 * Devuelve una cadena de texto que describe las propiedades del trabajador.
+	 */
 	@Override
 	public String toString() {
 		return "Trabajador [id=" + id + ", nombre=" + nombre + ", sueldo=" + sueldo + "]";
 	}
 
+	/**
+	 * Genera un hashcode del ID del trabajador.
+	 */
 	@Override
 	public int hashCode() {
 		
 		return id;
 	}
 
+	/**
+	 * Compara trabajadores por su identificador.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 	
@@ -149,7 +180,10 @@ public abstract class  Trabajador implements SueldoTrabajadores {
 	
 	
 	
-
+	/**
+	 * Calcula el sueldo de un trabajador teniendo en cuenta los impuestos.
+	 * @see	Trabajador#calculaImpuestos()
+	 */
 	@Override
 	public double calculaSueldo() {
 		// TODO Auto-generated method stub
@@ -160,13 +194,22 @@ public abstract class  Trabajador implements SueldoTrabajadores {
 
 	
 	//Comentar usando author @return @since
+	/**
+	 * Calcula los impuestos aplicados al sueldo del trabajador.
+	 * @return impuestos 
+	 */
 	@Override
 	public double calculaImpuestos() {
 		// TODO Auto-generated method stub
 		return sueldo*0.10;
 	}
 	
+	
 	//Comentar usando author @return @since
+	/**
+	 * Calcula el sueldo base del trabajador.
+	 * @return sueldoBase
+	 */
 	public double calculaSueldoBase() {
 		
 	

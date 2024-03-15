@@ -1,9 +1,11 @@
 
 /**
  * 
- * Este paquete ofrece utilidades de manejo de campos
+ * {@summary Esta  clase nos va a proporcionar distintas herramientas para trabajar con diferentes formatos }
+ * 
+ * <p> Este paquete ofrece utilidades de manejo de campos
  * de tipo nombre y apellidos y de tipo double para
- * salarios e impuestos
+ * salarios e impuestos <p>
  * 
  * @author Carlos Cano
  * 
