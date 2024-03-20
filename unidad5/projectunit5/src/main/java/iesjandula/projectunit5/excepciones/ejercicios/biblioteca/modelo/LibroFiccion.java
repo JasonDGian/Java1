@@ -1,4 +1,4 @@
-package iesjandula.projectunit5.excepciones.ejercicios.biblioteca;
+package iesjandula.projectunit5.excepciones.ejercicios.biblioteca.modelo;
 
 public class LibroFiccion extends Libro {
 

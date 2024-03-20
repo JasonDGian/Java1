@@ -1,5 +1,7 @@
-package iesjandula.projectunit5.excepciones.ejercicios.biblioteca;
+package iesjandula.projectunit5.excepciones.ejercicios.biblioteca.modelo;
 import java.util.Objects;
+
+import iesjandula.projectunit5.excepciones.ejercicios.biblioteca.interfaces.InfoAutor;
 
 public class Autor implements Comparable<Autor>, InfoAutor {
 	
