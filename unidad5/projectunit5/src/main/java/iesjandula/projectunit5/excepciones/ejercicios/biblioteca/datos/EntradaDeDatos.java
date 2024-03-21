@@ -3,14 +3,33 @@ package iesjandula.projectunit5.excepciones.ejercicios.biblioteca.datos;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import iesjandula.projectunit5.excepciones.ejercicios.biblioteca.excepciones.EntradaDeDatosException;
+import iesjandula.projectunit5.excepciones.ejercicios.biblioteca.excepciones.MenuException;
 import iesjandula.projectunit5.excepciones.ejercicios.biblioteca.modelo.EnumLibro;
 
 // esto es una clase sin estado, de funcionalidad, por lo que hacemos todo STATIC.
 public class EntradaDeDatos {
 
 	private static final Scanner sc = new Scanner(System.in);
-
-	public static int leerOpcionMenu(int min, int max) {
+	private static final String SEPARADOR_REFERENCIA = "-";
+	private static final int LONGITUD_REFERENCIA = 17;
+	
+	
+	public static int leerOpcionMenu(int min, int max) throws MenuException {
+		
+		int opcion=-1;
+		String opcionInput = sc.nextLine();
+	
+		if (esCadenaNumerica(opcionInput)) {
+			
+			opcion=Integer.valueOf(opcionInput);
+			
+		}
+		
+		if (opcion < min || opcion > max) {
+			throw new MenuException("Opción incorrecta. \nIntroduzca una opcion entre " + min + " y " + max, min, max);
+		}
+		
 
 		return 0;
 
@@ -32,9 +51,52 @@ public class EntradaDeDatos {
 	 *
 	 */
 
-	public static String leeReferenciaLibro() {
+	public static String leerEditorial() {
+		
+		String editorial = sc.nextLine();
+		
+		return primeraMayuscula(editorial);
+	}
+	
+	public static String leeReferenciaLibro() throws EntradaDeDatosException  {
 
-		return "";
+		boolean bCorrecto = true;
+		int contador = 0;
+		int[] arrayLongitudes = { 3, 1, 2, 1, 4, 1, 3, 1, 1 };
+		String token = "";
+
+		String referencia = sc.nextLine();
+
+		referencia.trim();
+
+		if (referencia.length() != LONGITUD_REFERENCIA || !referencia.contains(SEPARADOR_REFERENCIA)) {
+			bCorrecto = false;
+		}
+
+		StringTokenizer sToken = new StringTokenizer(referencia, SEPARADOR_REFERENCIA, true);
+
+		while (sToken.hasMoreTokens() && bCorrecto) {
+
+			token = sToken.nextToken();
+
+			if (contador % 2 == 0 && token.length() != arrayLongitudes[contador] && !esCadenaNumerica(token)) {
+				bCorrecto = false;
+			}
+
+			if (contador % 2 != 0 && token.length() != arrayLongitudes[contador]
+					&& !token.equals(SEPARADOR_REFERENCIA)) {
+				bCorrecto = false;
+			}
+
+			contador++;
+
+		}
+		
+		if (!bCorrecto) {
+			throw new EntradaDeDatosException("La referencia introducida no es valida.\nSiga el formato indicado. \nFormato nnn-nn-nnnn-nnn-n ");
+		}
+
+		return referencia;
 	}
 
 	/*
@@ -42,22 +104,24 @@ public class EntradaDeDatos {
 	 *
 	 */
 
-	public static int leerAnnio() {
+	public static int leerAnnio() throws EntradaDeDatosException {
 
 		int annioNum = 0;
 		String annio = sc.nextLine();
+		
+		boolean bCorrecto = true;
 
 		if (esCadenaNumerica(annio)) {
-
 			annioNum = Integer.valueOf(annio);
 
-			/*
-			 * if (annioNum >= -5000 && annioNum <= 2020)) {
-			 *
-			 *
-			 * }
-			 */
+			if (annioNum <= -5000 && annioNum <= 2024) {
+				bCorrecto=true;
+			}
 
+		}
+		
+		if (!bCorrecto) {
+			throw new EntradaDeDatosException("El año introducido no es valido. |\nIntroduzca un año en formato numerico entre -5000 y 2024.");
 		}
 
 		return annioNum;
@@ -69,7 +133,7 @@ public class EntradaDeDatos {
 	 *
 	 */
 
-	public static String leerNombreAutor() {
+	public static String leerNombreYApellidosAutor() {
 
 		String nombreApellidosFormateado = "";
 		String nombreApellidos = sc.nextLine();
@@ -82,8 +146,32 @@ public class EntradaDeDatos {
 
 		}
 
+		nombreApellidosFormateado.trim();
+		
 		return nombreApellidosFormateado;
 
+	}
+	
+	public static String getNombreAutor( String nombreYApellidos ) {
+			
+		StringTokenizer tokens  = new StringTokenizer(nombreYApellidos);
+			
+		return tokens.nextToken();
+	}
+	
+	public static String getApellidosAutor( String nombreYApellidos ) {
+		String apellidos ="";
+		
+		StringTokenizer tokens  = new StringTokenizer(nombreYApellidos);
+			
+		tokens.nextToken();
+		
+		while (tokens.hasMoreTokens()) {
+			apellidos+=tokens.nextToken() + " ";
+		}
+		
+		apellidos.trim();
+		return apellidos;
 	}
 
 	/*
@@ -92,7 +180,7 @@ public class EntradaDeDatos {
 	 *
 	 */
 
-	public static String leerDniAutor() {
+	public static String leerDniAutor() throws EntradaDeDatosException {
 
 		boolean bCorrecto = false;
 		String dni = sc.nextLine();
@@ -104,16 +192,20 @@ public class EntradaDeDatos {
 			bCorrecto = true;
 
 		}
-
+		
+		if (!bCorrecto) {
+			throw new EntradaDeDatosException("El DNI introducido no es valido.\n Use el formato NNNNNNNL o NNNNNNNNL donde N equiuvale a un numero y L equivale a letra.");
+		}
+		
 		return dni;
 
 	}
 
-	public static EnumLibro leerTipoLibro() {
+	public static EnumLibro leerTipoLibro() throws EntradaDeDatosException {
 
 		EnumLibro tipoRetornado = EnumLibro.NOVELA;
 		String numTipo = sc.nextLine();
-		int tipoLibIndex = 0;
+		int tipoLibIndex = -1; // poner de default -1 permite saltarse el escribir una excpecion o booleano o contorl de IF
 
 		if (esCadenaNumerica(numTipo)) {
 
@@ -121,6 +213,11 @@ public class EntradaDeDatos {
 
 		}
 
+		// Excepción de rango numerico.
+		if (tipoLibIndex<0 && (tipoLibIndex>EnumLibro.values().length-1))
+		{
+			throw new EntradaDeDatosException("Introduzca un numero del 0 al " + (tipoLibIndex>EnumLibro.values().length-1));
+		}
 		tipoRetornado = EnumLibro.values()[tipoLibIndex];
 
 		return tipoRetornado;

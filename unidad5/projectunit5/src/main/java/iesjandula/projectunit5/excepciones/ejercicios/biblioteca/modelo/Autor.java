@@ -1,12 +1,42 @@
 package iesjandula.projectunit5.excepciones.ejercicios.biblioteca.modelo;
+
 import java.util.Objects;
 
 import iesjandula.projectunit5.excepciones.ejercicios.biblioteca.interfaces.InfoAutor;
 
+/**
+ * @author David Jason Gianmoena
+ * 
+ * {@summary  }
+ * 
+ * The Autor class provides an abstraction for a book Author.
+ * The Libro class has an attribute Autor type.
+ * @see Libro#getAutor()
+ * 
+ * @version 1.0
+ * @since 1.0
+ * 
+ */
+
+// decir lo que hace y como funciona sin decir como está hecho.
+// dar información sin informar de la implementación.
+
 public class Autor implements Comparable<Autor>, InfoAutor {
-	
+
+	/**
+	 * Author name of type String.
+	 */
 	private String nombre;
+	
+	/**
+	 * It stores the author's lastname or surname.
+	 */
 	private String apellidos; 
+	
+	/**
+	 * This property contains a DNI value for the Author.
+	 * The DNI is a national identity card in Spain.
+	 */
 	private String dni;
 	
 	
@@ -17,12 +47,29 @@ public class Autor implements Comparable<Autor>, InfoAutor {
 		this.dni = dni;
 	}
 
-
+	/**
+	 * Returns the author's name.
+	 * @return String nombre
+	 * 
+	 * @version 1.0
+	 * @since 1.0
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 
 
+	/**
+	 * @author Virginia Moreno
+	 * 
+	 * This method changes the author's name.
+	 * 
+	 * @param String author's name.
+	 * 
+	 * @version 1.0
+	 * @since 1.0
+	 * 
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}

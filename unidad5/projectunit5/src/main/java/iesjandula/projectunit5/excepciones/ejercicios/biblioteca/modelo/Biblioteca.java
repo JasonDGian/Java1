@@ -39,7 +39,13 @@ public class Biblioteca {
 		this.nombre = nombre;
 	}
 
-	
+	/**
+	 * The method introduces a new book to the library's inventory.
+	 * 
+	 * @see Libro
+	 * 
+	 * @param libro a book to be added.
+	 */
 	public void agregarLibro(Libro libro) {
 
 		int cont = 0;
