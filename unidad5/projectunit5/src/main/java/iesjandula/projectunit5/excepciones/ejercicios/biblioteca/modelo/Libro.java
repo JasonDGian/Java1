@@ -6,15 +6,65 @@ import java.util.Objects;
 import iesjandula.projectunit5.excepciones.ejercicios.biblioteca.interfaces.IEducativo;
 import iesjandula.projectunit5.excepciones.ejercicios.biblioteca.interfaces.InfoAutor;
 
-public abstract class Libro implements Comparable<Libro>, InfoAutor, IEducativo {
+/** 
+ * {@summary Libro is the abstract class that aims to represent books in our library }
+ * 
+ * Libro is extended by two concrete classes: {@link LibroEducativo} and {@link LibroFiccion}
+ * 
+ * It will be managed in the Biblioteca class. The biblioteca class is an abstraction of the Library.
+ * 
+ * 
+ * @author Virginia Moreno
+ * @since 1.0
+ * @version 1.1
+ */
 
+public abstract class Libro implements Comparable<Libro>, InfoAutor, IEducativo {
+	
+	/**
+	 * Stores the title of the book.
+	 */
 	private String titulo;
+	
+	/**
+	 * The author comproises the significaint data for the book's author.
+	 * @see Autor
+	 */
 	private Autor autor;
+	
+	/**
+	 * Contains the year of publication of the book.
+	 */
 	private int annioPublicacion;
+	
+	/**
+	 * Stores the publisher of the books name.
+	 */
 	private String editorial;
+	
+	/**
+	 * Contains the reference number of the books. ISBN
+	 */
 	private String referencia;
+	
+	/** 
+	 * Stores the book type.
+	 * @see EnumLibro
+	 */
 	private EnumLibro tipoLibro;
 
+	/**
+	 *  Parametrized consructor that provides an instance of the Libro class.
+	 *  There is no empty or parameterless constructor available. 
+	 *  Parameters are mandatory for Libro instances.
+	 * 
+	 * @param titulo The book's title
+	 * @param autor The book's author.
+	 * @param annioPublicacion The book's year of publication.
+	 * @param editorial The book's publisher name.
+	 * @param referencia The book's ISBN or reference number.
+	 * @param tipoLibro The book's type.
+	 */
 	public Libro(String titulo, Autor autor, int annioPublicacion,
 			String editorial, String referencia, EnumLibro tipoLibro) {
 
@@ -26,10 +76,18 @@ public abstract class Libro implements Comparable<Libro>, InfoAutor, IEducativo 
 		this.tipoLibro= tipoLibro;
 	}
 
+	/**
+	 * Returns the book's title.
+	 * @return 
+	 */
 	public String getTitulo() {
 		return titulo;
 	}
 
+	/**
+	 * Returns the book's title.
+	 * @param titulo
+	 */
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
