@@ -3,16 +3,27 @@ package iesjandula.projectunit5.excepciones.ejercicios.biblioteca.datos;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
+
 import iesjandula.projectunit5.excepciones.ejercicios.biblioteca.excepciones.EntradaDeDatosException;
 import iesjandula.projectunit5.excepciones.ejercicios.biblioteca.excepciones.MenuException;
 import iesjandula.projectunit5.excepciones.ejercicios.biblioteca.modelo.EnumLibro;
 
 // esto es una clase sin estado, de funcionalidad, por lo que hacemos todo STATIC.
 public class EntradaDeDatos {
+	
+	private static final Logger logger = LogManager.getLogger();
+	private static final Marker marker = MarkerManager.getMarker(EntradaDeDatos.class.toString());  // el to string llama el nombre de la clase 
 
 	private static final Scanner sc = new Scanner(System.in);
 	private static final String SEPARADOR_REFERENCIA = "-";
 	private static final int LONGITUD_REFERENCIA = 17;
+	
+	
+
 	
 	
 	public static int leerOpcionMenu(int min, int max) throws MenuException {
@@ -75,6 +86,8 @@ public class EntradaDeDatos {
 
 		StringTokenizer sToken = new StringTokenizer(referencia, SEPARADOR_REFERENCIA, true);
 
+		
+		logger.debug(marker, "Comienzo del while.");
 		while (sToken.hasMoreTokens() && bCorrecto) {
 
 			token = sToken.nextToken();
@@ -90,7 +103,8 @@ public class EntradaDeDatos {
 
 			contador++;
 
-		}
+		} // Cierra while
+		logger.debug(marker, "El while de validación de la referencia de libro funcionacorreectamente");
 		
 		if (!bCorrecto) {
 			throw new EntradaDeDatosException("La referencia introducida no es valida.\nSiga el formato indicado. \nFormato nnn-nn-nnnn-nnn-n ");
@@ -133,6 +147,7 @@ public class EntradaDeDatos {
 	 *
 	 */
 
+	
 	public static String leerNombreYApellidosAutor() {
 
 		String nombreApellidosFormateado = "";
@@ -140,11 +155,13 @@ public class EntradaDeDatos {
 		nombreApellidos.trim();
 		StringTokenizer tokens = new StringTokenizer(nombreApellidos);
 
+		logger.debug(marker, "Comienzo del while de leer nombre y apellidos.");
 		while (tokens.hasMoreTokens()) {
 
 			nombreApellidosFormateado = nombreApellidosFormateado + " " + primeraMayuscula(tokens.nextToken());
 
 		}
+		logger.debug(marker, "Final del while de leer nombre y apellidos.");
 
 		nombreApellidosFormateado.trim();
 		

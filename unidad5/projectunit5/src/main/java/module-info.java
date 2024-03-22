@@ -16,5 +16,6 @@
 // cada vez que hay cambio de vesion este paquete deberia de reflejar la versión actual.
 // Esto es javadoc a nivel de paquete.
 module projectunit5 {
+	requires org.apache.logging.log4j;
 	
 }

@@ -3,9 +3,19 @@ package iesjandula.projectunit5.excepciones.ejemploExcepciones;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
+
 public class EntradaDeDatos {
 
-	private Scanner sc = null;
+	
+	private Scanner sc = new Scanner(System.in);
+	
+	private static final Logger Logger = LogManager.getLogger();
+	private static final Marker marker = MarkerManager.getMarker(EntradaDeDatos.class.toString());  // el to string llama el nombre de la clase 
+	
 	public EntradaDeDatos() {
 		
 		
